@@ -94,7 +94,7 @@
      bind =
        [
 	 "$mainMod, Q, exec, $terminal"
-	 "$mainMod, M, exec, command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyperctl dispatch exit"
+	 "$mainMod, M, exec, command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch exit"
        ]
        ++ (
          # workspaces
