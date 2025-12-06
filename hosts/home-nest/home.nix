@@ -79,8 +79,6 @@
   programs.kitty.enable = true;
   wayland.windowManager.hyprland.enable = true;
   home.sessionVariables.NIXOS_OZONE_WL = "1";
-  home.sessionVariables.LIBVA_DRIVER_NAME = "nvidia";
-  home.sessionVariables.__GLX_VENDOR_LIBRARY_NAME = "nvidia";
 
   programs.git = {
     enable = true;

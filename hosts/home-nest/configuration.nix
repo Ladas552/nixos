@@ -85,6 +85,8 @@
   hardware.nvidia.open = true;
   hardware.nvidia.modesetting.enable = true;
   hardware.nvidia.nvidiaSettings = true;
+  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.beta;
+  services.xserver.videoDrivers = [ "nvidia" ];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -98,6 +100,11 @@
     fzf
     home-manager
   ];
+
+  environment.variables = {
+    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+    LIBVA_DRIVER_NAME = "nvidia";
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
