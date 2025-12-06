@@ -91,7 +91,6 @@
     wget
     curl
     git
-    kitty
     vim
     neovim
     fzf
