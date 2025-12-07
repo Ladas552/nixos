@@ -10,16 +10,10 @@
       ./hardware-configuration.nix
       inputs.home-manager.nixosModules.default
       ../../modules/system/fonts.nix
+      ../../modules/system/boot.nix
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   networking.hostName = "home-nest"; # Define your hostname.
 
