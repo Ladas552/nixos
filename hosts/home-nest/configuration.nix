@@ -9,10 +9,11 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       inputs.home-manager.nixosModules.default
-      ../../modules/system/fonts.nix # Fonts
       ../../modules/system/boot.nix # Boot options (loader, kernel)
       ../../modules/system/networking.nix # Networking
+      ../../modules/system/fonts.nix # Fonts
       ../../modules/system/locale.nix # Locale (time, internationalization)
+      ../../modules/system/users.nix # Users
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -22,16 +23,6 @@
     layout = "us";
     variant = "euro";
   };
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.codevogel = {
-    isNormalUser = true;
-    description = "Kamiel de Visser";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
-    shell = pkgs.zsh;
-  };
-  programs.zsh.enable = true;
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
