@@ -11,10 +11,11 @@
       inputs.home-manager.nixosModules.default
       ../../modules/system/boot.nix # Boot options (loader, kernel)
       ../../modules/system/networking.nix # Networking
-      ../../modules/system/fonts.nix # Fonts
-      ../../modules/system/locale.nix # Locale (time, internationalization)
+      ../../modules/system/environment.nix # Environment (system packages, variables)
       ../../modules/system/users.nix # Users
       ../../modules/system/programs.nix # Nix program modules
+      ../../modules/system/fonts.nix # Fonts
+      ../../modules/system/locale.nix # Locale (time, internationalization)
       ../../modules/system/audio.nix # Audio
     ];
 
@@ -43,19 +44,6 @@
   hardware.nvidia.nvidiaSettings = true;
   hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.beta;
   services.xserver.videoDrivers = [ "nvidia" ];
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    zsh
-    wget
-    curl
-    git
-    vim
-    neovim
-    fzf
-    home-manager
-  ];
 
   environment.variables = {
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
